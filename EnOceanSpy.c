@@ -6,9 +6,9 @@
  */
 
 #include <stdio.h>
-#include <unistd.h>			//Used for UART
-#include <fcntl.h>			//Used for UART
-#include <termios.h>		//Used for UART
+#include <unistd.h>	// Used for UART
+#include <fcntl.h>	// Used for UART
+#include <termios.h>	// Used for UART
 #include "time.h"
 
 
@@ -30,9 +30,9 @@ void printDate()
 	time( &tm );
 	ltime = localtime( &tm );
 	ltime->tm_mon++;
-    ltime->tm_year += 1900;
+	ltime->tm_year += 1900;
 
-    printf( "%04i-%02i-%02i %02i:%02i:%02i  ", ltime->tm_year,
+	printf( "%04i-%02i-%02i %02i:%02i:%02i  ", ltime->tm_year,
     		ltime->tm_mon, ltime->tm_mday, ltime->tm_hour, ltime->tm_min, ltime->tm_sec );
 }
 
