@@ -5,7 +5,7 @@ Use your Raspberry Pi to log all incoming EnOcean telegrams with an USB300 stick
 
 Requirements (hardware):
 * Raspberry Pi
-* EnOcean USB300
+* EnOcean USB300 (Alternative: EnOcean Pi SoC-Gateway TRX 8051)
 
 
 Compile EnOceanSpy with the following command
