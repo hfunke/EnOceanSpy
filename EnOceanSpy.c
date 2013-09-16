@@ -15,14 +15,13 @@
 
 static void print_hexbytes(const unsigned char *bytes, int nbytes)
 {
-	printDate();
 	int i;
 	for (i = 0; i < nbytes; i++)
 		printf("%02X ", bytes[i]);
 	printf("\n");
 }
 
-void printDate()
+static void printDate()
 {
 	time_t tm;
 	struct tm *ltime;
@@ -85,6 +84,7 @@ main()
 	        {
 	        	// Some bytes received
 	            rx_buffer[rx_length] = '\0';
+		    printDate();
 	            print_hexbytes(rx_buffer, rx_length);
 	        }
 		}
