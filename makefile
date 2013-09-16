@@ -1,5 +1,5 @@
 prog: EnOceanSpy.o
-	gcc -o prog EnOceanSpy.o
+	gcc -o EnOcean EnOceanSpy.o
 
-main.o: main.c
-	gcc -c EnOCeanSpy.c
+EnOceanSpy.o: EnOceanSpy.c
+	gcc -c EnOceanSpy.c
