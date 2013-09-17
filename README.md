@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/hfunke/EnOceanSpy.png?branch=master)](https://travis-ci.org/hfunke/EnOceanSpy)
 EnOceanSpy
 ==========
+[![Build Status](https://travis-ci.org/hfunke/EnOceanSpy.png?branch=master)](https://travis-ci.org/hfunke/EnOceanSpy)
 
 Use your Raspberry Pi to log all incoming EnOcean telegrams with an USB300 stick.
 
@@ -13,13 +13,16 @@ Compile EnOceanSpy with the following command
 
 gcc -o EnOceanSpy EnOceanSpy.c
 
-and start it with
+of use makefile with the following command
+
+make
+
+
+You can start spying with
 
 ./EnOceanSpy 
 
-to log all imcoming telegrams at console
-
-or start it with
+to log all imcoming telegrams at console or start it with
 
 ./EnOceanSpy > log.txt
 
