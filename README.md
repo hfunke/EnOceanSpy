@@ -10,16 +10,20 @@ Requirements (hardware):
 
 
 Compile EnOceanSpy with the following command
+
 gcc -o EnOceanSpy EnOceanSpy.c
 
 of use makefile with the following command
+
 make
 
 
 You can start spying with
+
 ./EnOceanSpy 
 
 to log all imcoming telegrams at console or start it with
+
 ./EnOceanSpy > log.txt
 
 to log all incoming telegrams in file 'log.txt'.
