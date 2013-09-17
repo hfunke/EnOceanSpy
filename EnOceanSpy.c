@@ -1,8 +1,10 @@
 /*
  * EnOceanSpy.c
+ * Use this tool to spy for EnOcean telegrams
  *
  *  Created on: 13.09.2013
- *      Author: holger
+ *      Author: hfunke
+ *
  */
 
 #include <stdio.h>
@@ -11,6 +13,7 @@
 #include <termios.h>	// Used for UART
 #include "time.h"
 
+#define USB300 "/dev/ttyUSB0"  // EnOcean device
 
 
 static void print_hexbytes(const unsigned char *bytes, int nbytes)
@@ -31,7 +34,7 @@ static void printDate()
 	ltime->tm_mon++;
 	ltime->tm_year += 1900;
 
-	printf( "%04i-%02i-%02i %02i:%02i:%02i  ", ltime->tm_year,
+	printf( "%04i-%02i-%02i %02i:%02i:%02i: ", ltime->tm_year,
     		ltime->tm_mon, ltime->tm_mday, ltime->tm_hour, ltime->tm_min, ltime->tm_sec );
 }
 
@@ -39,14 +42,14 @@ static void printDate()
 
 main()
 {
-	printf("Starting EnOcean Spy...\n");
+	printf("Starting EnOceanSpy...\n");
 
 	// If pipe is used to write output in file set buffer to null
 	setbuf(stdout, NULL);
 
 	int uart0_filestream = -1;
 
-	uart0_filestream = open("/dev/ttyUSB0", O_RDWR | O_NDELAY);
+	uart0_filestream = open(USB300, O_RDWR | O_NDELAY);
 	if (uart0_filestream == -1)
 	{
 		printf("Error! Unable to open UART.  Maybe UART in use by another application\n");
