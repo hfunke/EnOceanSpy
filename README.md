@@ -29,4 +29,4 @@ to log all imcoming telegrams at console or start it with
 to log all incoming telegrams in file 'log.txt'.
 
 
-Have fun to analyze your environment for EnOcean devices.
+Have fun to seek your environment after EnOcean devices.
