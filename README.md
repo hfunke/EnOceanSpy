@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/hfunke/EnOceanSpy.png?branch=master)](https://travis-ci.org/hfunke/EnOceanSpy)
 EnOceanSpy
 ==========
+[![Build Status](https://travis-ci.org/hfunke/EnOceanSpy.png?branch=master)](https://travis-ci.org/hfunke/EnOceanSpy)
 
 Use your Raspberry Pi to log all incoming EnOcean telegrams with an USB300 stick.
 
