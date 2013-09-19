@@ -52,7 +52,8 @@ main()
 	uart0_filestream = open(USB300, O_RDWR | O_NDELAY);
 	if (uart0_filestream == -1)
 	{
-		printf("Error! Unable to open UART.  Maybe UART in use by another application\n");
+		printf("Error! Unable to open UART.  Maybe UART in use by another application or USB300 is not ready.\n");
+		return -1;
 	}
 
 	struct termios options;
@@ -70,26 +71,27 @@ main()
 		if (uart0_filestream != -1)
 		{
 			// Give Raspberry a chance and wait before read :)
-	        sleep(1);
+	        	sleep(1);
 
-	        // Read up to 255 characters from comport if they are there
-	        unsigned char rx_buffer[256];
-	        int rx_length = read(uart0_filestream, (void*)rx_buffer, 255);
-	        if (rx_length < 0)
-	        {
-	        	// An error occurs if there are no bytes
-	        }
-	        else if (rx_length == 0)
-	        {
-	            // If there are no data then wait
-	        }
-	        else
-	        {
-	        	// Some bytes received
-	            rx_buffer[rx_length] = '\0';
-		    printDate();
-	            print_hexbytes(rx_buffer, rx_length);
-	        }
+	        	// Read up to 255 characters from comport if they are there
+	        	unsigned char rx_buffer[256];
+	        	int rx_length = read(uart0_filestream, (void*)rx_buffer, 255);
+	        	if (rx_length < 0)
+	        	{
+	        		// An error occurs if there are no bytes
+	        		//printf("No bytes received");
+			}
+	        	else if (rx_length == 0)
+	        	{
+	            		// If there are no data then ignore and wait
+	        	}
+	        	else
+	        	{
+	        		// Some bytes received
+	            		rx_buffer[rx_length] = '\0';
+		    		printDate();
+	            		print_hexbytes(rx_buffer, rx_length);
+	        	}
 		}
 	}
 }
