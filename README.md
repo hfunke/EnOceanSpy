@@ -20,11 +20,13 @@ make
 
 You can start spying with
 
-./EnOceanSpy 
+./EnOceanSpy /dev/ttyUSB0    (using EnOcean USB300)
+or     
+./EnOceanSpy /dev/ttyAMA0    (using EnOcean Pi)
 
 to log all imcoming telegrams at console or start it with
 
-./EnOceanSpy > log.txt
+./EnOceanSpy <portname> > log.txt
 
 to log all incoming telegrams in file 'log.txt'.
 
