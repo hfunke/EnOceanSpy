@@ -13,7 +13,7 @@ Compile EnOceanSpy with the following command
 
 gcc -o EnOceanSpy EnOceanSpy.c
 
-of use makefile with the following command
+or use makefile with the following command
 
 make
 
