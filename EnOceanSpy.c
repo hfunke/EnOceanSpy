@@ -13,11 +13,12 @@
 #include <termios.h>	// Used for UART
 #include "time.h"
 
-#define USB300 "/dev/ttyUSB0"  // EnOcean device
+//#define USB300 "/dev/ttyAMA0"  // default EnOcean device
 
 
 static void print_hexbytes(const unsigned char *bytes, int nbytes)
 {
+
 	int i;
 	for (i = 0; i < nbytes; i++)
 		printf("%02X ", bytes[i]);
@@ -40,19 +41,37 @@ static void printDate()
 
 
 
-main()
+main( int argc, char *argv[] )
 {
 	printf("Starting EnOceanSpy...\n");
+
+	// Check number of args
+	if (argc > 2 || argc <=1 ) 
+	{
+		printf("Usage: EnOceanSpy <port_name>\n");
+		printf("       e.g. EnOceanSpy /dev/ttyUSB0 \n");
+		return -1;
+	}	
+
+
+	// Check content of args	
+	if ((strcmp(argv[1], "/dev/ttyUSB0") != 0) 
+		&& (strcmp(argv[1], "/dev/ttyAMA0") !=0) )
+	{
+		printf("Error: %s is not a valid port name!\n", argv[1]);
+		return -1;
+	}
+
 
 	// If pipe is used to write output in file set buffer to null
 	setbuf(stdout, NULL);
 
 	int uart0_filestream = -1;
 
-	uart0_filestream = open(USB300, O_RDWR | O_NDELAY);
+	uart0_filestream = open(argv[1], O_RDWR | O_NDELAY);
 	if (uart0_filestream == -1)
 	{
-		printf("Error! Unable to open UART.  Maybe UART in use by another application or USB300 is not ready.\n");
+		printf("Error! Unable to open UART. Maybe UART in use by another application or device is not ready.\n");
 		return -1;
 	}
 
