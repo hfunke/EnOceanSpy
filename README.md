@@ -17,11 +17,11 @@ or use makefile with the following command
 
 make
 
-To use the EnOcean Pi you need to disable Linux using the serial port for debugging. As default the serial port of the GPIO interface is used for console debug outputs. To use this port for your EnOcean Pi, this feature has to be disabled. There is a script available at GitHub to adapt boot up settings:
+To use the EnOcean Pi SoC-Gateway TRX 8051 you need to disable Linux using the serial port for debugging. As default the serial port of the GPIO interface is used for console debug outputs. To use this port for your EnOcean Pi, this feature has to be disabled. There is a script available at GitHub to adapt boot up settings:
 https://github.com/lurch/rpi-serial-console 
 
 
-You can start spying with
+As soon as compiling was succeesfull, you can start spying with
 
 ./EnOceanSpy /dev/ttyUSB0    (using EnOcean USB300)
 or     
