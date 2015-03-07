@@ -35,7 +35,7 @@ static void printDate()
 	ltime->tm_mon++;
 	ltime->tm_year += 1900;
 
-	printf( "%04i-%02i-%02i %02i:%02i:%02i: ", ltime->tm_year,
+	printf( "%04i-%02i-%02i %02i:%02i:%02i  ", ltime->tm_year,
     		ltime->tm_mon, ltime->tm_mday, ltime->tm_hour, ltime->tm_min, ltime->tm_sec );
 }
 
